@@ -1,8 +1,10 @@
 package com.kujovic.diplomskiPocetak.entity;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
@@ -14,17 +16,17 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Izvodjac {
-	@Id
-	@OneToOne(mappedBy= "predmetId")
-	private int predmetId;
+	@Id 
+	@ManyToOne
+	private Long  predmetId;
 	
-	@Id
-	@OneToOne(mappedBy= "nastavnikId")
-	private int nastavnikId;
+	@Id 
+	@ManyToOne
+	private Long  nastavnikId;
 	
-	@Id
-	@OneToOne(mappedBy= "ulogaId")
-	private int ulogaId;
+	@Id 
+	@ManyToOne
+	private Long  ulogaId;
 	
 	private String opis;
 	

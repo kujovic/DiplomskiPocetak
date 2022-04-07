@@ -2,9 +2,11 @@ package com.kujovic.diplomskiPocetak.entity;
 
 import java.util.List;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
@@ -16,8 +18,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Predmet {
-	@Id
-	private int predmetId;
+	@Id 
+	private Long  predmetId;
 	
 	private String nazivPredmeta;
 	private int semestar;
@@ -28,6 +30,6 @@ public class Predmet {
 	@ManyToOne
 	private Katedra katedra;
 	
-	@OneToOne
-	private Izvodjac izvodjac;
+//	@OneToMany
+//	private List<Izvodjac> izvodjaci;
 }

@@ -1,8 +1,12 @@
 package com.kujovic.diplomskiPocetak.entity;
 
+import java.util.List;
+
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
@@ -15,8 +19,8 @@ import lombok.ToString;
 @ToString
 public class Nastavnik {
 	
-	@Id
-	private int nastavnikId;
+	@Id 
+	private Long  nastavnikId;
 	
 	private String imePrezime;
 	private String brojTelefona;
@@ -25,7 +29,7 @@ public class Nastavnik {
 	@ManyToOne
 	private Katedra katedra;
 	
-	@OneToOne
-	private Izvodjac izvodjac;
+//	@OneToMany
+//	private List<Izvodjac> izvodjaci;
 	
 }

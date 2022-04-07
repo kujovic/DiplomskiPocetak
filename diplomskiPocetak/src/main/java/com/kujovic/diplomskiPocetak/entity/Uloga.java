@@ -1,7 +1,12 @@
 package com.kujovic.diplomskiPocetak.entity;
 
+import java.util.List;
+
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
@@ -14,11 +19,11 @@ import lombok.ToString;
 @ToString
 public class Uloga {
 	
-	@Id
-	private int ulogaId;
+	@Id 
+	private Long  ulogaId;
 	
 	private String vrstaUloge;
 	
-	@OneToOne
-	private Izvodjac izvodjac;
+//	@OneToMany
+//	private List<Izvodjac> izvodjaci;
 }
