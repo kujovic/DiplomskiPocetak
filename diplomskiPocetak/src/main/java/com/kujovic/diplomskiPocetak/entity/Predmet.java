@@ -1,5 +1,6 @@
 package com.kujovic.diplomskiPocetak.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EmbeddedId;
@@ -17,7 +18,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Predmet {
+public class Predmet  implements Serializable{
 	@Id 
 	private Long  predmetId;
 	
@@ -30,6 +31,6 @@ public class Predmet {
 	@ManyToOne
 	private Katedra katedra;
 	
-//	@OneToMany
-//	private List<Izvodjac> izvodjaci;
+	@OneToMany
+	private List<Izvodjac> izvodjaci;
 }

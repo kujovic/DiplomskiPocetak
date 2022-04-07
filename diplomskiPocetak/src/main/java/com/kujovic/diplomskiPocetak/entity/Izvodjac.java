@@ -1,7 +1,10 @@
 package com.kujovic.diplomskiPocetak.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -15,18 +18,18 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Izvodjac {
+public class Izvodjac implements Serializable {
 	@Id 
-	@ManyToOne
-	private Long  predmetId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Uloga  uloga;
 	
 	@Id 
-	@ManyToOne
-	private Long  nastavnikId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Nastavnik  nastavnik;
 	
 	@Id 
-	@ManyToOne
-	private Long  ulogaId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Predmet  predmet;
 	
 	private String opis;
 	

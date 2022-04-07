@@ -1,5 +1,6 @@
 package com.kujovic.diplomskiPocetak.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EmbeddedId;
@@ -17,13 +18,13 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Uloga {
+public class Uloga  implements Serializable{
 	
 	@Id 
 	private Long  ulogaId;
 	
 	private String vrstaUloge;
 	
-//	@OneToMany
-//	private List<Izvodjac> izvodjaci;
+	@OneToMany
+	private List<Izvodjac> izvodjaci;
 }
