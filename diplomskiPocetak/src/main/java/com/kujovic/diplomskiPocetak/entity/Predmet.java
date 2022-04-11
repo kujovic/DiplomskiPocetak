@@ -3,12 +3,12 @@ package com.kujovic.diplomskiPocetak.entity;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -19,7 +19,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Predmet  implements Serializable{
-	@Id 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long  predmetId;
 	
 	private String nazivPredmeta;
@@ -31,6 +32,6 @@ public class Predmet  implements Serializable{
 	@ManyToOne
 	private Katedra katedra;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "predmet")
 	private List<Izvodjac> izvodjaci;
 }
