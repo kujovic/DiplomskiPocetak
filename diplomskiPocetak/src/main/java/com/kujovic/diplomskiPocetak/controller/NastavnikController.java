@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kujovic.diplomskiPocetak.entity.Nastavnik;
-import com.kujovic.diplomskiPocetak.service.KatedraService;
 import com.kujovic.diplomskiPocetak.service.NastavnikService;
 
 @RestController

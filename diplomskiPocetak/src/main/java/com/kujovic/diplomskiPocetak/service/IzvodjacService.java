@@ -18,7 +18,7 @@ public class IzvodjacService {
 		this.izvodjacRepository = izvodjacRepository;
 	}
 	
-	public Izvodjac dodajKatedru(Izvodjac izvodjac) {
+	public Izvodjac dodajIzvodjaca(Izvodjac izvodjac) {
 		return izvodjacRepository.save(izvodjac);
 	}
 	

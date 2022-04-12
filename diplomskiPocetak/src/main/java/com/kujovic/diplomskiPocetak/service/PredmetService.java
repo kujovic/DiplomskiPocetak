@@ -26,16 +26,16 @@ public class PredmetService {
 		return predmetRepository.findAll();
 	}
 	
-	public Predmet azurirajKatedru(Predmet predmet) {
+	public Predmet azurirajPredmet(Predmet predmet) {
 		return predmetRepository.save(predmet);
 	}
 	
-	public Predmet nadjiKatedruPoId(Long id) {
+	public Predmet nadjiPredmetPoId(Long id) {
 		return predmetRepository.findPredmetById(id);
 				
 	}
 	
-	public void deleteNastavnik(Long id) {
+	public void deletePredmet(Long id) {
 		predmetRepository.deletePredmetById(id);
 	}
 	
