@@ -32,12 +32,12 @@ public class KatedraController {
 		return new ResponseEntity<>(katedre,HttpStatus.OK);
 	}
 	
-	@GetMapping("/find/{id}")
-	public ResponseEntity<Katedra> getKatedraById (@PathVariable("id") Long id){
-		Katedra katedra = katedraService.nadjiKatedruPoId(id);
-		return new ResponseEntity<>(katedra,HttpStatus.OK);
-		
-	}
+//	@GetMapping("/find/{id}")
+//	public ResponseEntity<Katedra> getKatedraById (@PathVariable("id") Long id){
+//		Katedra katedra = katedraService.nadjiKatedruPoId(id);
+//		return new ResponseEntity<>(katedra,HttpStatus.OK);
+//		
+//	}
 	
 	@PostMapping("/add")
 	public ResponseEntity<Katedra> addKatedra (@RequestBody Katedra katedra){
@@ -53,10 +53,10 @@ public class KatedraController {
 		
 	}
 	
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteKatedra (@PathVariable("id") Long id){
-		katedraService.deleteKatedra(id);
-		return new ResponseEntity<>(HttpStatus.OK);
-		
-	}
+//	@DeleteMapping("/delete/{id}")
+//	public ResponseEntity<?> deleteKatedra (@PathVariable("id") Long id){
+//		katedraService.deleteKatedra(id);
+//		return new ResponseEntity<>(HttpStatus.OK);
+//		
+//	}
 }

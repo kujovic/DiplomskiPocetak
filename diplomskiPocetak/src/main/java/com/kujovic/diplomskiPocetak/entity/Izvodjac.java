@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -15,6 +16,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@IdClass(IzvodjacId.class)
 public class Izvodjac implements Serializable {
 	@Id
 	@ManyToOne
@@ -31,7 +33,7 @@ public class Izvodjac implements Serializable {
 	@JoinColumn(name="predmetId")
 	private Predmet  predmet;
 	
-	private String opis;
+	//private String opis;
 	
 //	@Id
 //	@OneToMany(targetEntity = Predmet.class, cascade = CascadeType.ALL)

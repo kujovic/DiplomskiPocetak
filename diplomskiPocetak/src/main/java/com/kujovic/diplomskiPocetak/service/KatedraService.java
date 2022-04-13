@@ -30,13 +30,13 @@ public class KatedraService {
 		return katedraRepository.save(katedra);
 	}
 	
-	public Katedra nadjiKatedruPoId(Long id) {
-		return katedraRepository.findKatedraById(id);
-				
-	}
+//	public Katedra nadjiKatedruPoId(Long id) {
+//		return katedraRepository.findKatedraById(id);
+//				
+//	}
 	
-	public void deleteKatedra(Long id) {
-		katedraRepository.deleteKatedraById(id);
-	}
+//	public void deleteKatedra(Long id) {
+//		katedraRepository.deleteKatedraById(id);
+//	}
 	
 }

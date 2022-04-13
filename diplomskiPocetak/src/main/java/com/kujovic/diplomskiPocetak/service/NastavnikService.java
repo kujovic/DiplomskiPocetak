@@ -31,13 +31,13 @@ public class NastavnikService {
 		return nastavnikRepository.save(nastavnik);
 	}
 	
-	public Nastavnik nadjiNastavnikaPoId(Long id) {
-		return nastavnikRepository.findNastavnikById(id);
-				
-	}
-	
-	public void deleteNastavnik(Long id) {
-		nastavnikRepository.deleteNastavnikById(id);
-	}
+//	public Nastavnik nadjiNastavnikaPoId(Long id) {
+//		return nastavnikRepository.findNastavnikById(id);
+//				
+//	}
+//	
+//	public void deleteNastavnik(Long id) {
+//		nastavnikRepository.deleteNastavnikById(id);
+//	}
 	
 }

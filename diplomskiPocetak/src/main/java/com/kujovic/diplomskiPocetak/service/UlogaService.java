@@ -30,13 +30,13 @@ public class UlogaService {
 		return ulogaRepository.save(uloga);
 	}
 	
-	public Uloga nadjiUloguPoId(Long id) {
-		return ulogaRepository.findUlogaById(id);
-				
-	}
-	
-	public void deleteUloga(Long id) {
-		ulogaRepository.deleteUlogaById(id);
-	}
+//	public Uloga nadjiUloguPoId(Long id) {
+//		return ulogaRepository.findUlogaById(id);
+//				
+//	}
+//	
+//	public void deleteUloga(Long id) {
+//		ulogaRepository.deleteUlogaById(id);
+//	}
 	
 }

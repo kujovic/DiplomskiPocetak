@@ -32,12 +32,12 @@ public class PredmetController {
 		return new ResponseEntity<>(predmeti,HttpStatus.OK);
 	}
 	
-	@GetMapping("/find/{id}")
-	public ResponseEntity<Predmet> getPredmetById (@PathVariable("id") Long id){
-		Predmet predmet = predmetService.nadjiPredmetPoId(id);
-		return new ResponseEntity<>(predmet,HttpStatus.OK);
-	}
-	
+//	@GetMapping("/find/{id}")
+//	public ResponseEntity<Predmet> getPredmetById (@PathVariable("id") Long id){
+//		Predmet predmet = predmetService.nadjiPredmetPoId(id);
+//		return new ResponseEntity<>(predmet,HttpStatus.OK);
+//	}
+//	
 	@PostMapping("/add")
 	public ResponseEntity<Predmet> addPredmet (@RequestBody Predmet predmet){
 		Predmet newPredmet = predmetService.dodajPredmet(predmet);
@@ -52,10 +52,10 @@ public class PredmetController {
 		
 	}
 	
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deletePredmet (@PathVariable("id") Long id){
-		predmetService.deletePredmet(id);
-		return new ResponseEntity<>(HttpStatus.OK);
-		
-	}
+//	@DeleteMapping("/delete/{id}")
+//	public ResponseEntity<?> deletePredmet (@PathVariable("id") Long id){
+//		predmetService.deletePredmet(id);
+//		return new ResponseEntity<>(HttpStatus.OK);
+//		
+//	}
 }

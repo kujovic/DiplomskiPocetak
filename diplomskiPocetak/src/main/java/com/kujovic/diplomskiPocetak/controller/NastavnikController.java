@@ -32,12 +32,12 @@ private final NastavnikService nastavnikService;
 		return new ResponseEntity<>(nastavnici,HttpStatus.OK);
 	}
 	
-	@GetMapping("/find/{id}")
-	public ResponseEntity<Nastavnik> getNastavnikById (@PathVariable("id") Long id){
-		Nastavnik nastavnik = nastavnikService.nadjiNastavnikaPoId(id);
-		return new ResponseEntity<>(nastavnik,HttpStatus.OK);
-		
-	}
+//	@GetMapping("/find/{id}")
+//	public ResponseEntity<Nastavnik> getNastavnikById (@PathVariable("id") Long id){
+//		Nastavnik nastavnik = nastavnikService.nadjiNastavnikaPoId(id);
+//		return new ResponseEntity<>(nastavnik,HttpStatus.OK);
+//		
+//	}
 	
 	@PostMapping("/add")
 	public ResponseEntity<Nastavnik> addNastavnik (@RequestBody Nastavnik nastavnik){
@@ -53,10 +53,10 @@ private final NastavnikService nastavnikService;
 		
 	}
 	
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteNastavnik (@PathVariable("id") Long id){
-		nastavnikService.deleteNastavnik(id);
-		return new ResponseEntity<>(HttpStatus.OK);
-		
-	}
+//	@DeleteMapping("/delete/{id}")
+//	public ResponseEntity<?> deleteNastavnik (@PathVariable("id") Long id){
+//		nastavnikService.deleteNastavnik(id);
+//		return new ResponseEntity<>(HttpStatus.OK);
+//		
+//	}
 }

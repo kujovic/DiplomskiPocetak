@@ -30,13 +30,13 @@ public class PredmetService {
 		return predmetRepository.save(predmet);
 	}
 	
-	public Predmet nadjiPredmetPoId(Long id) {
-		return predmetRepository.findPredmetById(id);
-				
-	}
-	
-	public void deletePredmet(Long id) {
-		predmetRepository.deletePredmetById(id);
-	}
-	
+//	public Predmet nadjiPredmetPoId(Long id) {
+//		return predmetRepository.findPredmetById(id);
+//				
+//	}
+//	
+//	public void deletePredmet(Long id) {
+//		predmetRepository.deletePredmetById(id);
+//	}
+//	
 }
