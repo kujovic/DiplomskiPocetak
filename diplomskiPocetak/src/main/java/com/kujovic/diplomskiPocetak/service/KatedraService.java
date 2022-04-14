@@ -1,6 +1,7 @@
 package com.kujovic.diplomskiPocetak.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,13 +31,13 @@ public class KatedraService {
 		return katedraRepository.save(katedra);
 	}
 	
-//	public Katedra nadjiKatedruPoId(Long id) {
-//		return katedraRepository.findKatedraById(id);
-//				
-//	}
+	public Optional<Katedra> nadjiKatedruPoId(Long id) {
+		return katedraRepository.findById(id);
+				
+	}
 	
-//	public void deleteKatedra(Long id) {
-//		katedraRepository.deleteKatedraById(id);
-//	}
+	public void deleteKatedra(Long id) {
+		katedraRepository.deleteById(id);
+	}
 	
 }

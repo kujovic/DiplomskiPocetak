@@ -1,6 +1,7 @@
 package com.kujovic.diplomskiPocetak.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,13 +31,13 @@ public class PredmetService {
 		return predmetRepository.save(predmet);
 	}
 	
-//	public Predmet nadjiPredmetPoId(Long id) {
-//		return predmetRepository.findPredmetById(id);
-//				
-//	}
-//	
-//	public void deletePredmet(Long id) {
-//		predmetRepository.deletePredmetById(id);
-//	}
-//	
+	public Optional<Predmet> nadjiPredmetPoId(Long id) {
+		return predmetRepository.findById(id);
+				
+	}
+	
+	public void deletePredmet(Long id) {
+		predmetRepository.deleteById(id);
+	}
+	
 }

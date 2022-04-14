@@ -5,7 +5,4 @@ import com.kujovic.diplomskiPocetak.entity.Nastavnik;
 
 public interface NastavnikRepository extends JpaRepository<Nastavnik, Long>{
 
-//	void deleteNastavnikById(Long id);
-//
-//	Nastavnik findNastavnikById(Long id);
 }

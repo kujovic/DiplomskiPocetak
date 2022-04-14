@@ -6,7 +6,4 @@ import com.kujovic.diplomskiPocetak.entity.Katedra;
 
 public interface KatedraRepository extends JpaRepository<Katedra, Long>{
 
-	//void deleteKatedraById(Long id);
-
-	//Katedra findKatedraById(Long id);
 }

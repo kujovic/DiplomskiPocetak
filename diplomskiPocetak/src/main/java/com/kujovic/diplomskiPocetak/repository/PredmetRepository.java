@@ -6,7 +6,4 @@ import com.kujovic.diplomskiPocetak.entity.Predmet;
 
 public interface PredmetRepository extends JpaRepository<Predmet, Long>{
 
-//	void deletePredmetById(Long id);
-//
-//	Predmet findPredmetById(Long id);
 }

@@ -1,6 +1,7 @@
 package com.kujovic.diplomskiPocetak.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,13 +31,12 @@ public class UlogaService {
 		return ulogaRepository.save(uloga);
 	}
 	
-//	public Uloga nadjiUloguPoId(Long id) {
-//		return ulogaRepository.findUlogaById(id);
-//				
-//	}
-//	
-//	public void deleteUloga(Long id) {
-//		ulogaRepository.deleteUlogaById(id);
-//	}
+	public Optional<Uloga> nadjiUloguPoId(Long id) {
+		return ulogaRepository.findById(id);
+	}
+	
+	public void deleteUloga(Long id) {
+		ulogaRepository.deleteById(id);
+	}
 	
 }
