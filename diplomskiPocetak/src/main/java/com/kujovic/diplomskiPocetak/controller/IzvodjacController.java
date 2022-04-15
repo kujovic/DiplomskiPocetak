@@ -4,14 +4,10 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.kujovic.diplomskiPocetak.entity.Izvodjac;
+import com.kujovic.diplomskiPocetak.entity.IzvodjacId;
 import com.kujovic.diplomskiPocetak.service.IzvodjacService;
 
 @RestController
@@ -38,10 +34,16 @@ private final IzvodjacService izvodjacService;
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<Izvodjac> updateIzvodjaca (@RequestBody Izvodjac izvodjac){
+	public ResponseEntity<Izvodjac> updateIzvodjac (@RequestBody Izvodjac izvodjac){
 		Izvodjac updateIzvodjac = izvodjacService.azurirajIzvodjaca(izvodjac);
 		return new ResponseEntity<>(updateIzvodjac,HttpStatus.OK);
 		
 	}
 
+	@DeleteMapping("/delete")
+	public ResponseEntity<?> deleteIzvodjac (@RequestBody IzvodjacId izvodjacId){
+		izvodjacService.deleteIzvodjac(izvodjacId);
+		return new ResponseEntity<>(HttpStatus.OK);
+		
+	}
 }

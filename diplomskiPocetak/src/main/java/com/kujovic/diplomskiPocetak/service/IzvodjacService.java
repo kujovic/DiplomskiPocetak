@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kujovic.diplomskiPocetak.entity.Izvodjac;
+import com.kujovic.diplomskiPocetak.entity.IzvodjacId;
 import com.kujovic.diplomskiPocetak.repository.IzvodjacRepository;
 
 @Service
@@ -35,8 +36,8 @@ public class IzvodjacService {
 //				
 //	}
 //	
-//	public void deleteNastavnik(Long id) {
-//		katedraRepository.deleteKatedraById(id);
-//	}
+	public void deleteIzvodjac(IzvodjacId izvodjacId) {
+		izvodjacRepository.getById(izvodjacId);
+	}
 	
 }
