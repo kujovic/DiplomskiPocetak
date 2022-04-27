@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.*;
 
 @Entity
@@ -23,9 +26,12 @@ public class Nastavnik  implements Serializable{
 	private String status; //profesor,docent
 	
 	@ManyToOne
+	@JsonIgnore
 	private Katedra katedra;
 	
+	
 	@OneToMany(mappedBy = "nastavnik")
+	@JsonIgnore
 	private List<Izvodjac> izvodjaci;
 	
 }
