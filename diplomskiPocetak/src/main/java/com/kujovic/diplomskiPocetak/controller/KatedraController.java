@@ -1,7 +1,9 @@
 package com.kujovic.diplomskiPocetak.controller;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -39,12 +41,26 @@ public class KatedraController {
 		
 	}
 	
-	@PutMapping("/update")
-	public ResponseEntity<Katedra> updateKatedra (@RequestBody Katedra katedra){
-		Katedra updateKatedra = katedraService.azurirajKatedru(katedra);
+	@PutMapping("/update/{id}")
+	public ResponseEntity<?> updateKatedra (@PathVariable Long id, @RequestBody Katedra katedra){
+		Katedra katedraZaCuvanje = katedraService.nadjiKatedruPoId(id).
+				orElseThrow(()-> new RuntimeException("Ne postoji katedra sa id-jem: "+id));
+		
+		katedraZaCuvanje.setKatedraId(katedra.getKatedraId());
+		katedraZaCuvanje.setNazivKatedre(katedra.getNazivKatedre());
+		katedraZaCuvanje.setSkraceniNazivKatedre(katedra.getSkraceniNazivKatedre());
+		
+		Katedra updateKatedra = katedraService.azurirajKatedru(katedraZaCuvanje);
 		return new ResponseEntity<>(updateKatedra,HttpStatus.OK);
 		
 	}
+	
+		@GetMapping("/get/{id}")
+		public ResponseEntity<Katedra> getKatedraById(@PathVariable Long id) {
+			Katedra katedra = katedraService.nadjiKatedruPoId(id)
+					.orElseThrow(()-> new RuntimeException("Ne postoji katedra sa id-jem: "+id));
+			return new ResponseEntity<>(katedra,HttpStatus.OK);
+		}
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteKatedra (@PathVariable("id") Long id){

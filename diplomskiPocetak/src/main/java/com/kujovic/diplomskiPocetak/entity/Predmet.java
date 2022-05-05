@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.*;
 
 @Entity
@@ -27,5 +30,6 @@ public class Predmet  implements Serializable{
 	private Katedra katedra;
 	
 	@OneToMany(mappedBy = "predmet")
+	@JsonIgnore
 	private List<Izvodjac> izvodjaci;
 }

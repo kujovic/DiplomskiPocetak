@@ -26,7 +26,6 @@ public class Nastavnik  implements Serializable{
 	private String status; //profesor,docent
 	
 	@ManyToOne
-	@JsonIgnore
 	private Katedra katedra;
 	
 	

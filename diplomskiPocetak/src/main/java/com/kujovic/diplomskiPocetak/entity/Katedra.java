@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.*;
 
 @Entity
@@ -19,15 +22,19 @@ public class Katedra  implements Serializable{
 	
 	private String nazivKatedre;
 	
+	private String skraceniNazivKatedre;
+	
 //	@OneToMany(targetEntity = Predmet.class, cascade = CascadeType.ALL)
 //	@JoinColumn(name="p_fk", referencedColumnName = "predmetId")
 //	private List<Predmet> predmeti;
 	
+	/*@JsonIgnore
 	@OneToMany(mappedBy = "nastavnikId")
 	private List<Nastavnik> nastavnici;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "predmetId")
-	private List<Predmet> predmeti;
+	private List<Predmet> predmeti;*/
 	
 //	@ManyToOne
 //	private Izvodjac izvodjac;
