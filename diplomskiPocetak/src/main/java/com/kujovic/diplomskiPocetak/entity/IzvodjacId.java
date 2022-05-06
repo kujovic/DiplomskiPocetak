@@ -7,4 +7,5 @@ public class IzvodjacId implements Serializable{
 	private Uloga uloga;
 	private Nastavnik nastavnik;
 	private Predmet  predmet;
+	private Godina godina;
 }

@@ -28,9 +28,9 @@ public class Nastavnik  implements Serializable{
 	@ManyToOne
 	private Katedra katedra;
 	
-	
+	/*
 	@OneToMany(mappedBy = "nastavnik")
 	@JsonIgnore
 	private List<Izvodjac> izvodjaci;
-	
+	*/
 }

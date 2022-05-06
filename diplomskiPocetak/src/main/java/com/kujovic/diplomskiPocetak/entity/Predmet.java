@@ -29,7 +29,8 @@ public class Predmet  implements Serializable{
 	@ManyToOne
 	private Katedra katedra;
 	
+	/*
 	@OneToMany(mappedBy = "predmet")
 	@JsonIgnore
-	private List<Izvodjac> izvodjaci;
+	private List<Izvodjac> izvodjaci;*/
 }

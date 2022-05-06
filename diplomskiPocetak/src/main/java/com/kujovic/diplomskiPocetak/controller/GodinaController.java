@@ -6,23 +6,23 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.kujovic.diplomskiPocetak.entity.Katedra;
-import com.kujovic.diplomskiPocetak.service.KatedraService;
-
+import com.kujovic.diplomskiPocetak.entity.Godina;
+import com.kujovic.diplomskiPocetak.service.GodinaService;
 
 @RestController
-@RequestMapping("/katedra")
-public class KatedraController {
-	private final KatedraService katedraService;
+@RequestMapping("/godina")
+public class GodinaController {
+
+private final GodinaService godinaService;
 	
-	public KatedraController(KatedraService katedraService) {
-		this.katedraService=katedraService;
+	public GodinaController(GodinaService godinaService) {
+		this.godinaService=godinaService;
 	}
 
 	@GetMapping("/all")
-	public ResponseEntity<List<Katedra>> getAllKatedre(){
-		List<Katedra> katedre = katedraService.pronadjiSveKatedre();
-		return new ResponseEntity<>(katedre,HttpStatus.OK);
+	public ResponseEntity<List<Godina>> getAllGodine(){
+		List<Godina> godine = godinaService.pronadjiSveGodine();
+		return new ResponseEntity<>(godine,HttpStatus.OK);
 	}
 	
 //	@GetMapping("/find/{id}")
@@ -33,13 +33,13 @@ public class KatedraController {
 //	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<Katedra> addKatedra (@RequestBody Katedra katedra){
-		Katedra newKatedra = katedraService.dodajKatedru(katedra);
-		return new ResponseEntity<>(newKatedra,HttpStatus.CREATED);
+	public ResponseEntity<Godina> addGodina (@RequestBody Godina godina){
+		Godina newGodina = godinaService.dodajGodinu(godina);
+		return new ResponseEntity<>(newGodina,HttpStatus.CREATED);
 		
 	}
 	
-	@PutMapping("/update/{id}")
+	/*@PutMapping("/update/{id}")
 	public ResponseEntity<?> updateKatedra (@PathVariable Long id, @RequestBody Katedra katedra){
 		Katedra katedraZaCuvanje = katedraService.nadjiKatedruPoId(id).
 				orElseThrow(()-> new RuntimeException("Ne postoji katedra sa id-jem: "+id));
@@ -51,18 +51,18 @@ public class KatedraController {
 		Katedra updateKatedra = katedraService.azurirajKatedru(katedraZaCuvanje);
 		return new ResponseEntity<>(updateKatedra,HttpStatus.OK);
 		
-	}
+	}*/
 	
 		@GetMapping("/get/{id}")
-		public ResponseEntity<Katedra> getKatedraById(@PathVariable Long id) {
-			Katedra katedra = katedraService.nadjiKatedruPoId(id)
-					.orElseThrow(()-> new RuntimeException("Ne postoji katedra sa id-jem: "+id));
-			return new ResponseEntity<>(katedra,HttpStatus.OK);
+		public ResponseEntity<Godina> getGodinaById(@PathVariable Long id) {
+			Godina godina = godinaService.nadjiGodinuPoId(id)
+					.orElseThrow(()-> new RuntimeException("Ne postoji godina sa id-jem: "+id));
+			return new ResponseEntity<>(godina,HttpStatus.OK);
 		}
 	
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteKatedra (@PathVariable("id") Long id){
-		katedraService.deleteKatedra(id);
+	public ResponseEntity<?> deleteGdoina (@PathVariable("id") Long id){
+		godinaService.deleteGodina(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 		
 	}

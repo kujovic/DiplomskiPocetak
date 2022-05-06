@@ -21,6 +21,7 @@ public class Uloga  implements Serializable{
 	
 	private String vrstaUloge;
 	
+	/*
 	@OneToMany(mappedBy = "uloga")
-	private List<Izvodjac> izvodjaci;
+	private List<Izvodjac> izvodjaci;*/
 }

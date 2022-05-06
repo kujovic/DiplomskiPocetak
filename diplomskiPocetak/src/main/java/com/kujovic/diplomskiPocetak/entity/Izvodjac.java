@@ -28,6 +28,11 @@ public class Izvodjac implements Serializable {
 	@JoinColumn(name="predmetId")
 	private Predmet  predmet;
 	
+	@Id
+	@ManyToOne
+	@JoinColumn(name="godinaId")
+	private Godina godina;
+	
 	//private String opis;
 	
 //	@Id
