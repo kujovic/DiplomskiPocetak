@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.kujovic.diplomskiPocetak.entity.Katedra;
 import com.kujovic.diplomskiPocetak.entity.Nastavnik;
 import com.kujovic.diplomskiPocetak.service.NastavnikService;
 
@@ -39,13 +40,39 @@ private final NastavnikService nastavnikService;
 		return new ResponseEntity<>(newNastavnik,HttpStatus.CREATED);
 		
 	}
-	
+	/*
 	@PutMapping("/update")
 	public ResponseEntity<Nastavnik> updateNastavnik (@RequestBody Nastavnik nastavnik){
 		Nastavnik updateNastavnik = nastavnikService.azurirajNastavnika(nastavnik);
 		return new ResponseEntity<>(updateNastavnik,HttpStatus.OK);
 		
 	}
+	*/
+	
+	@PutMapping("/update/{id}")
+	public ResponseEntity<?> updateNastavnik (@PathVariable Long id, @RequestBody Nastavnik nastavnik){
+		Nastavnik nastavnikZaCuvanje = nastavnikService.nadjiNastavnikaPoId(id).
+				orElseThrow(()-> new RuntimeException("Ne postoji nastavnik sa id-jem: "+id));
+		
+		
+		nastavnikZaCuvanje.setNastavnikId(nastavnik.getNastavnikId());
+		nastavnikZaCuvanje.setImePrezime(nastavnik.getImePrezime());
+		nastavnikZaCuvanje.setBrojTelefona(nastavnik.getBrojTelefona());
+		nastavnikZaCuvanje.setStatus(nastavnik.getStatus());
+		nastavnikZaCuvanje.setKatedra(nastavnik.getKatedra());
+		
+		Nastavnik updateNastavnik = nastavnikService.azurirajNastavnika(nastavnikZaCuvanje);
+		return new ResponseEntity<>(updateNastavnik,HttpStatus.OK);
+		
+	}
+	@GetMapping("/get/{id}")
+	public ResponseEntity<Nastavnik> getNastavnikById(@PathVariable Long id) {
+		Nastavnik nastavnik = nastavnikService.nadjiNastavnikaPoId(id)
+				.orElseThrow(()-> new RuntimeException("Ne postoji nastavnik sa id-jem: "+id));
+		return new ResponseEntity<>(nastavnik,HttpStatus.OK);
+	}
+
+	
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteNastavnik (@PathVariable("id") Long id){
