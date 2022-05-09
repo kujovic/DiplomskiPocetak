@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.kujovic.diplomskiPocetak.entity.Nastavnik;
 import com.kujovic.diplomskiPocetak.entity.Predmet;
 import com.kujovic.diplomskiPocetak.service.PredmetService;
 
@@ -38,11 +39,38 @@ public class PredmetController {
 	}
 	
 	
-	@PutMapping("/update")
-	public ResponseEntity<Predmet> updatePredmet (@RequestBody Predmet predmet){
-		Predmet updatePredmet = predmetService.azurirajPredmet(predmet);
+//	@PutMapping("/update")
+//	public ResponseEntity<Predmet> updatePredmet (@RequestBody Predmet predmet){
+//		Predmet updatePredmet = predmetService.azurirajPredmet(predmet);
+//		return new ResponseEntity<>(updatePredmet,HttpStatus.OK);
+//		
+//	}
+	
+	@PutMapping("/update/{id}")
+	public ResponseEntity<?> updatePredmet (@PathVariable Long id, @RequestBody Predmet predmet){
+		Predmet predmetZaCuvanje = predmetService.nadjiPredmetPoId(id).
+				orElseThrow(()-> new RuntimeException("Ne postoji predmet sa id-jem: "+id));
+		
+		
+		predmetZaCuvanje.setPredmetId(predmet.getPredmetId());
+		predmetZaCuvanje.setNazivPredmeta(predmet.getNazivPredmeta());
+		predmetZaCuvanje.setSemestar(predmet.getSemestar());
+		predmetZaCuvanje.setStudijskiProgram(predmet.getStudijskiProgram());
+		predmetZaCuvanje.setModul(predmet.getModul());
+		predmetZaCuvanje.setObavezan(predmet.isObavezan());
+		predmetZaCuvanje.setKatedra(predmet.getKatedra());
+		
+		
+		Predmet updatePredmet = predmetService.azurirajPredmet(predmetZaCuvanje);
 		return new ResponseEntity<>(updatePredmet,HttpStatus.OK);
 		
+	}
+	
+	@GetMapping("/get/{id}")
+	public ResponseEntity<Predmet> getNastavnikById(@PathVariable Long id) {
+		Predmet predmet = predmetService.nadjiPredmetPoId(id)
+				.orElseThrow(()-> new RuntimeException("Ne postoji predmet sa id-jem: "+id));
+		return new ResponseEntity<>(predmet,HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/delete/{id}")

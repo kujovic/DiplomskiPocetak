@@ -6,7 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.kujovic.diplomskiPocetak.entity.Katedra;
 import com.kujovic.diplomskiPocetak.entity.Nastavnik;
 import com.kujovic.diplomskiPocetak.service.NastavnikService;
 
